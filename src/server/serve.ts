@@ -21,6 +21,9 @@ const serve = (
     filePath = url.slice(1);
     rootDir = calderaRootDir;
     mimeType = "application/javascript";
+  } else if (url && url.indexOf(".css") >= 0) {
+    filePath = url.slice(1);
+    mimeType = "text/css";
   }
 
   fs.readFile(path.join(rootDir, filePath), (err, buf) => {
